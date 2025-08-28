@@ -47,7 +47,7 @@ Each solution is written in a clean and consistent format, with a focus on:
 ## 🚀 Problem Categories
 
 ### Arrays & Strings (Two Pointers / Sliding Window)
-- [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) – ✅ [Code](strings/longest_substring.cpp)
+- [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) – [Code](strings/longest_substring.cpp)
 - [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
 - [Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
 - [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
