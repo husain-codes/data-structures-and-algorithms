@@ -2,9 +2,19 @@
 #include <vector>
 using namespace std;
 
+/*
+ * Function: insertMaxheap
+ * -----------------------
+ * Inserts an element at index 'n' into a max heap.
+ * It fixes the heap property by moving the element up (heapify-up).
+ *
+ * Time Complexity: O(log n)
+ * Space Complexity: O(1)
+ */
 void insertMaxheap(vector<int> &nums , int n) {
     int i = n;
     int temp = nums[i];
+    // Move element up until parent is larger or root is reached
     while (i > 0 && temp > nums[(i - 1) / 2]) {
         nums[i] = nums[(i - 1) / 2];
         i = (i - 1) / 2;
@@ -12,15 +22,33 @@ void insertMaxheap(vector<int> &nums , int n) {
     nums[i] = temp;
 }
 
+/*
+ * Function: createMaxheap
+ * -----------------------
+ * Converts a given array into a max heap by repeatedly inserting elements.
+ *
+ * Time Complexity: O(n log n) using insertion method
+ * Space Complexity: O(1)
+ */
 void createMaxheap(vector<int> &nums) {
     for (int i = 0; i < nums.size(); i++) {
         insertMaxheap(nums, i);
     }
 }
 
+/*
+ * Function: insertMinheap
+ * -----------------------
+ * Inserts an element at index 'n' into a min heap.
+ * It fixes the heap property by moving the element up (heapify-up).
+ *
+ * Time Complexity: O(log n)
+ * Space Complexity: O(1)
+ */
 void insertMinheap(vector<int> &nums , int n) {
     int i = n;
     int temp = nums[i];
+    // Move element up until parent is smaller or root is reached
     while (i > 0 && temp < nums[(i - 1) / 2]) {
         nums[i] = nums[(i - 1) / 2];
         i = (i - 1) / 2;
@@ -28,18 +56,37 @@ void insertMinheap(vector<int> &nums , int n) {
     nums[i] = temp;
 }
 
+/*
+ * Function: createMinheap
+ * -----------------------
+ * Converts a given array into a min heap by repeatedly inserting elements.
+ *
+ * Time Complexity: O(n log n) using insertion method
+ * Space Complexity: O(1)
+ */
 void createMinheap(vector<int> &nums) {
     for (int i = 0; i < nums.size(); i++) {
         insertMinheap(nums, i);
     }
 }
 
+/*
+ * Function: DeleteMax
+ * ------------------
+ * Deletes the maximum element from a max heap (root element).
+ * Places the max element at the end (used for heap sort).
+ *
+ * Time Complexity: O(log n) - heapify down
+ * Space Complexity: O(1)
+ */
 void DeleteMax(vector<int> &nums , int n) {
-	int val = nums[0];
-	nums[0] = nums[n-1];
+	int val = nums[0];         // Store max element
+	nums[0] = nums[n-1];       // Move last element to root
 	int i = 0;
 	int heapSize = n - 1; 
 	int largest = i;
+
+	// Heapify-down to restore max heap property
 	while(true) {
 		int left = 2*i+1;
 		int right = 2*i+2;
@@ -55,11 +102,20 @@ void DeleteMax(vector<int> &nums , int n) {
 		} else {
 			break;
 		}
-		
 	}
-	nums[n-1]=val;
+
+	nums[n-1]=val;   // Place max element at the end
 }
 
+/*
+ * Function: HeapSort
+ * -----------------
+ * Sorts an array using heap sort algorithm.
+ * Builds a max heap, then repeatedly deletes the max element and places it at the end.
+ *
+ * Time Complexity: O(n log n)
+ * Space Complexity: O(1) - in-place
+ */
 void HeapSort(vector<int> &nums) {
 	createMaxheap(nums);
 	
