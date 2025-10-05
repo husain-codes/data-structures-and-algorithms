@@ -1,4 +1,4 @@
-# Data Structures & Algorithms in C++
+# Data Structures & Algorithms in C/C++
 
 This repository contains my C/C++ solutions to popular Data Structures and Algorithms (DSA) problems.  
 The problems are organized by patterns, core topics, and advanced concepts for easy reference.  
